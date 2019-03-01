@@ -2,8 +2,8 @@
 
 ```bash
 > stack build
-> stack exec morsr-exe
+> stack exec morsr
 .... . .-.. .-.. ---
-HELLO
+hello
 .-- --- .-. .-.. -..
-WORLD
+world
