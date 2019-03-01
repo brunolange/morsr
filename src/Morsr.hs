@@ -2,6 +2,8 @@ module Morsr
     ( decode
     ) where
 
+import Data.List.Split
+
 data Morse = Dot | Dash | Space deriving (Eq, Show)
 
 data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show)
@@ -90,10 +92,7 @@ navigate (Node _ _ r) (R:xs) = navigate r xs
 navigate Empty xs = error "invalid message"
 
 morseWords :: [Morse] -> [[Morse]]
-morseWords s = case dropWhile (== Space) s of
-    [] -> []
-    s' -> w : morseWords s''
-            where (w, s'') = break (== Space) s'
+morseWords = splitWhen (== Space)
 
 morseToDirection :: Morse -> Direction
 morseToDirection Dot = L
