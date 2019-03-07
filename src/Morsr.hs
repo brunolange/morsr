@@ -109,3 +109,9 @@ charToMorse _   = Nothing
 
 decode :: String -> Maybe String
 decode = fmap decode' . sequence . map charToMorse
+
+removeWhitespace :: String -> String
+removeWhitespace = filter (/=' ')
+
+compactify :: String -> String
+compactify = foldl (++) "" . map removeWhitespace . lines
