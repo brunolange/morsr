@@ -10,7 +10,7 @@ data Tree a = Node a (Tree a) (Tree a) | Empty deriving (Show)
 
 morseTree :: Tree Char
 morseTree =
-    Node '*'
+    Node ' '
         (Node 'E'
             (Node 'I'
                 (Node 'S'
