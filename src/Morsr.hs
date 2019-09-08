@@ -85,7 +85,7 @@ data Direction = L | R deriving (Show)
 type Path = [Direction]
 
 navigate :: Tree Char -> Path -> Char
-navigate (Node '|' _ _) [] = error "invalid character"
+navigate (Node '|' _ _) _ = error "invalid character"
 navigate (Node x _ _) [] = x
 navigate (Node _ l _) (L:xs) = navigate l xs
 navigate (Node _ _ r) (R:xs) = navigate r xs
